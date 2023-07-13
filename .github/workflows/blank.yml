@@ -33,6 +33,5 @@ jobs:
       - name: Install foundry
         run: |
           curl -L https://foundry.paradigm.xyz | bash
-          source $HOME/.bashrc
-          foundryup -v stable
-          anvil --help
+          $HOME/.foundry/bin/foundryup -v stable
+          PATH=$PATH:$HOME/.foundry/bin anvil --help
