@@ -34,4 +34,4 @@ jobs:
         run: |
           curl -L https://foundry.paradigm.xyz | bash
           $HOME/.foundry/bin/foundryup -v stable
-          PATH=$PATH:$HOME/.foundry/bin anvil --help
+          $HOME/.foundry/bin/anvil --help
