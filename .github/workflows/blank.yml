@@ -29,4 +29,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           curl -L https://foundry.paradigm.xyz | bash
-
+          source $HOME/.bashrc
+          foundryup -v stable
