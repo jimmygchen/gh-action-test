@@ -13,6 +13,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  # Needed to make foundryup not complain
+  SHELL: /bin/bash
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -29,6 +33,6 @@ jobs:
       - name: Install foundry
         run: |
           curl -L https://foundry.paradigm.xyz | bash
-          source ~/.bashrc
+          source $HOME/.bashrc
           foundryup -v stable
           anvil --help
