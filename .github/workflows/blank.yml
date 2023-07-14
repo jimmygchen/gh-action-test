@@ -53,16 +53,15 @@ jobs:
 
 
   build-self-hosted:
-    # The type of runner that the job will run on
-    runs-on: ${{ vars.UBUNTU_RUNNER || 'ubuntu-latest' }}
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # configuration variable can be used to override default `ubuntu-latest` runner 
+    runs-on: ${{ vars.SELF_HOSTED_UBUNTU_RUNNER || 'ubuntu-latest' }}
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
-        with:
-          version: nightly
-      - name: Test anvil
-        run: anvil --help
+      - name: Command for github hosted runners
+        if: vars.SELF_HOSTED_UBUNTU_RUNNER == ""
+        run: echo "woohoo I'm on a github hosted runner!"
+      - name: Command for self-hosted runners
+        if: vars.SELF_HOSTED_UBUNTU_RUNNER != ""
+        run: echo "woohoo I'm on a self hosted runner!"
+      - name: Command that runs on all runners
+        run: echo "I run on both types of runners!"
