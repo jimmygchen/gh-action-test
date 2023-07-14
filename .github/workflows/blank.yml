@@ -52,7 +52,7 @@ jobs:
         run: anvil --help
 
 
-  build:
+  build-runner-test:
     # configuration variable can be used to override default `ubuntu-latest` runner 
     runs-on: ${{ vars.SELF_HOSTED_UBUNTU_RUNNER || 'ubuntu-latest' }}
     steps:
