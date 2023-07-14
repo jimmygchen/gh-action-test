@@ -32,7 +32,6 @@ jobs:
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
-          version: stable
-
+          version: nightly
       - name: Test anvil
         run: anvil --help
